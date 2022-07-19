@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="jay1">jay1</button>
+    <button id="jay2">jay2</button>
+    <br>
+    <img src="../1.DOM/img/jay1.jpg" alt="" title="jay1">
+
+    <script>
+        // 修改元素属性  src
+        // 1、获取元素
+        var jay1 = document.getElementById('jay1');
+        var jay2 = document.getElementById('jay2');
+        var img = document.querySelector('img');
+        // 2、注册事件   处理程序
+        jay2.onclick = function(){
+            img.src = '../1.DOM/img/jay2.jpg';
+            img.title = 'jay2';
+        }
+        jay1.onclick = function(){
+            img.src = '../1.DOM/img/jay1.jpg';
+            img.title = 'jay1';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 窗口加载事件  文档内容（dom元素、图片、flash、css等）全部加载完成会触发该事件
+        // 传统方式
+        // window.onload = function(){
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //     alert('点我');
+        // })
+        // }
+        // window.onload = function(){
+        //     alert(22);
+        // }
+
+        // 监听方式
+        window.addEventListener('load',function(){
+            var btn = document.querySelector('button');
+            btn.addEventListener('click',function(){
+                alert('点我');
+            })
+        })
+        window.addEventListener('load',function(){
+            alert(22);
+        })
+
+        // DOMContentLoaded  dom元素（不包含图片、falsh、css等）全部加载完成触发事件
+        //   速度比onload更快
+        document.addEventListener('DOMContentLoaded',function(){
+            alert(33);
+        })
+    </script>
+    <button>点击</button>
+    
+</body>
+</html>

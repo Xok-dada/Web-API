@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="time">2022-6-23</div>
+    <ul>
+        <li>1</li>
+        <li>12</li>
+        <li>123</li>
+        <li>1234</li>
+        <li>12345</li>
+    </ul>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+
+    <script>
+        // 获取页面元素：1、根据ID 2、根据标签名 3、H5新增方法  4、特殊元素获取
+
+        // 通过id获取   返回的是一个元素对象
+        // var timer = document.getElementById('time');
+        // console.log(timer);
+        // console.log(typeof timer);
+        // console.dir(timer);  //打印返回的元素对象  更好查看里面的属性和方法
+
+        // 通过标签名   //返回的是 获取过来元素对象的集合  以伪数组的形式存储
+        // var lis = document.getElementsByTagName('li');
+        // console.log(lis);
+        // console.log(lis[0]);
+        // for (var i=0;i<lis.length;i++){
+        //     console.log(lis[i]);
+        // }
+
+        //H5新增获取元素方式
+        // 1、getElementsByClassName()  根据类名获取某些元素集合
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+        //2、querySelector  返回指定选择器的第一个元素对象
+        var firstBox = document.querySelector('.box');
+        console.log(firstBox);
+        var nav = document.querySelector('#nav');
+        console.log(nav);
+        var li = document.querySelector('li');
+        console.log(li);
+        // 3、querySelectorAll() 返回指定选择器的所有元素对象集合
+        var allBox = document.querySelectorAll('.box');
+        console.log(allBox);
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+
+        // 获取body元素
+        var bodyEle = document.body;
+        console.log(bodyEle);
+        console.dir(bodyEle);
+        // 获取html元素
+        var htmlEle = document.documentElement;
+        console.log(htmlEle);
+    </script>
+</body>
+</html>

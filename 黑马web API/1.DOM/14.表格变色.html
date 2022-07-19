@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 0 auto;
+            margin-top: 200px;
+            border: 1px solid black;
+        }
+        thead tr{
+            height: 30px;
+            background-color: skyblue;
+        }
+        tbody tr{
+            height: 30px;
+        }
+        tbody td{
+            border-bottom: 1px solid #d7d7d7;
+            font-size: 12px;
+            color: blue;
+        }
+        .bg{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>专业</th>
+                <th>联系方式</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>计算机科学</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>计算机科学</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>计算机科学</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>计算机科学</td>
+                <td>123456</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 利用鼠标事件  鼠标经过onmousemove  鼠标离开onmouseout
+
+        // 1、获取元素  获取tbody里面所有的行
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        // 2、利用循环注册事件
+        for(var i=0;i<trs.length;i++){
+            // 3、鼠标经过事件  onmousemove
+            trs[i].onmousemove = function(){
+                this.className = 'bg';
+            }
+            // 4、鼠标离开事件  onmouseout
+            trs[i].onmouseout = function(){
+                this.className = '';
+            }
+        }
+
+    </script>
+</body>
+</html>

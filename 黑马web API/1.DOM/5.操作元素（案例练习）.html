@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../1.DOM/img/jay1.jpg" alt="">
+    <div>上午好</div>
+    <script>
+        // 分时问候案例
+        // 根据系统不同时间来判断 ，使用日期内置对象
+        // 利用多分支语句来设置不同的图片
+        // 根据时间修改图片  操作src属性
+        // 使用一个div元素  显示不同问候语  修改元素内容
+
+        // 1、获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+
+        // 2、得到当前的小时数
+        var date = new Date();
+        var h = date.getHours();
+
+        // 3、判断小时数改变图片 文字信息
+        if(h < 12){
+            img.src = '../1.DOM/img/jay1.jpg';
+            div.innerHTML = '上午好';
+        }else if(h < 18){
+            img.src = '../1.DOM/img/jay2.jpg';
+            div.innerHTML = '下午好';
+        }else{
+            img.src = '../1.DOM/img/jay3.jpg';
+            div.innerHTML = '晚上好';
+        }
+
+
+
+
+    </script>
+</body>
+</html>

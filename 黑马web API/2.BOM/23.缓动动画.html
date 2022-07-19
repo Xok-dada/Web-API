@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn500">点击span到500</button>
+    <button class="btn800">点击span到800</button>
+    <span>span</span>
+    <script>
+        // 缓动动画
+        // 思路  : 1、让盒子每次移动的距离慢慢变小，减缓速度
+        //        2、核心算法：(目标值-现在位置)/10 作为每次移动的距离 步长
+        //        3、停止条件： 让当前盒子位置等于目标位置就停止定时器
+        function animate(obj,target,callback){
+            // console.log(callback);   callback = function(){}  调用的时候callback()
+
+            // 先清除以前的定时器  只保留当前一个定时器执行
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function(){
+                // 步长值写到定时器的里面
+                // 将步长值改为整数  不要出现小数
+                // var step = Math.ceil((target - obj.offsetLeft) / 10 );
+                var step = (target - obj.offsetLeft) / 10 ;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if(obj.offsetLeft == target){
+                    // 停止动画  本质上是关闭定时器
+                    clearInterval(obj.timer);
+                    // 回调函数写道定时器结束里面
+                    if(callback){
+                        // 调用函数
+                        callback();
+                    }
+                }
+                // 将每次加1 这个布长值改为一个慢慢变小的值：(目标值-现在位置)/10
+                obj.style.left = obj.offsetLeft + step + 'px';
+            },15);
+        }
+        var span = document.querySelector('span');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+        // 调用函数
+        btn500.addEventListener('click',function(){
+            animate(span,500);
+        })
+        btn800.addEventListener('click',function(){
+            animate(span,800,function(){
+                // alert('hello');
+                span.style.backgroundColor = 'pink';
+            });
+        })
+    </script>
+</body>
+</html>
